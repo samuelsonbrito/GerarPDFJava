@@ -3,19 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package br.com.gerarpdf.view;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
-import java.awt.Desktop;
+
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -46,7 +45,7 @@ public class ViewGerarPDF extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 102, 204));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icon-pdf.png"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon-pdf.png"))); // NOI18N
         jButton1.setText("Gerar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,9 +83,11 @@ public class ViewGerarPDF extends javax.swing.JFrame {
             PdfWriter.getInstance(document, new FileOutputStream("documento.pdf"));
             
             document.open();
-            document.add(new Paragraph("#TchauQuerida"));
+            document.add(new Paragraph("#Teste_GERARDO_PDF https://github.com/Heverton"));
             
-        } catch (DocumentException | FileNotFoundException ex) {
+        } catch (DocumentException ex) {
+            System.out.println("Error:"+ex);
+        } catch (FileNotFoundException ex) {
             System.out.println("Error:"+ex);
         }finally{
             document.close();
